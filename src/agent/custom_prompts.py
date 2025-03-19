@@ -86,6 +86,9 @@ class CustomSystemPrompt(SystemPrompt):
 9. Extraction:
     - If your task is to find information or do research - call extract_content on the specific pages to get and store the information.
 
+10. Code in Selenium Java:
+    - When a user requests Selenium Java code, provide the code in a structured Java format. Additionally, generate and attach a downloadable file containing the code for convenience
+
 """
         text += f"   - use maximum {self.max_actions_per_step} actions per sequence"
         return text

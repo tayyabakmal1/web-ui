@@ -723,13 +723,13 @@ def create_ui(config, theme_name="Ocean"):
     """
 
     with gr.Blocks(
-            title="Browser Use WebUI", theme=theme_map[theme_name], css=css
+            title="Automation Techscale", theme=theme_map[theme_name], css=css
     ) as demo:
         with gr.Row():
             gr.Markdown(
                 """
-                # 🌐 Browser Use WebUI
-                ### Control your browser with AI assistance
+                # 🌐 Automation at Techscale
+                ### Automation Testing with AI assistance
                 """,
                 elem_classes=["header-text"],
             )
@@ -938,9 +938,11 @@ def create_ui(config, theme_name="Ocean"):
                     browser_view = gr.HTML(
                         value="<h1 style='width:80vw; height:50vh'>Waiting for browser session...</h1>",
                         label="Live Browser View",
+                        
                 )
+                    
             
-            with gr.TabItem("🧐 Deep Research", id=5):
+            with gr.TabItem("🧐 Research", id=5):
                 research_task_input = gr.Textbox(label="Research Task", lines=5, value="Compose a report on the use of Reinforcement Learning for training Large Language Models, encompassing its origins, current advancements, and future prospects, substantiated with examples of relevant models and techniques. The report should reflect original insights and analysis, moving beyond mere summarization of existing literature.")
                 with gr.Row():
                     max_search_iteration_input = gr.Number(label="Max Search Iteration", value=3, precision=0) # precision=0 确保是整数
@@ -970,11 +972,11 @@ def create_ui(config, theme_name="Ocean"):
                     with gr.Row():
                         with gr.Column():
                             model_actions_output = gr.Textbox(
-                                label="Model Actions", lines=3, show_label=True
+                                label="Model Actions", lines=10, show_label=True
                             )
                         with gr.Column():
                             model_thoughts_output = gr.Textbox(
-                                label="Model Thoughts", lines=3, show_label=True
+                                label="Model Thoughts", lines=10, show_label=True
                             )
 
                     trace_file = gr.File(label="Trace File")
@@ -1130,7 +1132,7 @@ def main():
     config_dict = default_config()
 
     demo = create_ui(config_dict, theme_name=args.theme)
-    demo.launch(server_name=args.ip, server_port=args.port)
+    demo.launch(server_name=args.ip, server_port=args.port, pwa=True )
 
 if __name__ == '__main__':
     main()
